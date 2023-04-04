@@ -1,17 +1,12 @@
 <script setup>
-const isLoggedIn = useState("isLoggedIn", () => false);
+const user = useUser();
 definePageMeta({
   layout: "plain",
 });
-
-function login() {
-  isLoggedIn.value = true;
-  useRouter().push("/");
-}
 </script>
 
 <template>
-  <form @submit.prevent="login">
+  <form @submit.prevent="user.login">
     <h1>로그인</h1>
     <label for="name"
       >이름
